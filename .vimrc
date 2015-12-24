@@ -46,6 +46,9 @@ set backup
 set title
 set history=256
 set undolevels=8192
+set backupdir=~/.vimtmp
+set directory=~/.vimtmp
+set writebackup
 
 " Files
 set ffs=unix,dos,mac
