@@ -89,6 +89,7 @@ inoremap <C-S> <F2>
 vnoremap <C-S> <F2>
 noremap <C-S> <F2>
 
+" Highlighting
 if has("gui_running")
     " GUI colors
     hi CursorLine  gui=NONE guibg=#262626
@@ -109,7 +110,7 @@ if has("gui_running")
     elseif has("x11")
         " pass
     elseif has("gui_win32")
-        " pass
+        set guifont=courier_new:h10:cRUSSIAN
     endif
 else
     " Terminal colors
@@ -126,3 +127,82 @@ else
     hi CursorLineNr cterm=NONE ctermbg=NONE ctermfg=172
 endif
 
+" Remapping for the russian layout
+nnoremap Ж :
+nnoremap ф a
+nnoremap с c
+nnoremap в d
+nnoremap Ю >
+nnoremap Б <
+nnoremap П G
+nnoremap п g
+nnoremap г u
+nnoremap й q
+nnoremap ц w
+
+cnoremap й q
+cnoremap Й Q
+cnoremap ц w
+cnoremap Ц W
+cnoremap у e
+cnoremap У E
+cnoremap к r
+cnoremap К R
+cnoremap е t
+cnoremap Е T
+cnoremap н y
+cnoremap Н Y
+cnoremap г u
+cnoremap Г U
+cnoremap ш i
+cnoremap Ш I
+cnoremap щ o
+cnoremap Щ O
+cnoremap з p
+cnoremap З P
+cnoremap х [
+cnoremap Х {
+cnoremap ъ ]
+cnoremap Ъ }
+cnoremap ф a
+cnoremap Ф A
+cnoremap ы s
+cnoremap Ы S
+cnoremap в d
+cnoremap В D
+cnoremap а f
+cnoremap А F
+cnoremap п g
+cnoremap П G
+cnoremap р h
+cnoremap Р H
+cnoremap о j
+cnoremap О J
+cnoremap л k
+cnoremap Л K
+cnoremap д l
+cnoremap Д L
+cnoremap ж ;
+cnoremap Ж :
+cnoremap э '
+cnoremap Э "
+cnoremap я z
+cnoremap Я Z
+cnoremap ч x
+cnoremap Ч X
+cnoremap с c
+cnoremap С C
+cnoremap м v
+cnoremap М V
+cnoremap и b
+cnoremap И B
+cnoremap т n
+cnoremap Т N
+cnoremap ь m
+cnoremap Ь M
+cnoremap б ,
+cnoremap Б <
+cnoremap ю .
+cnoremap Ю >
+cnoremap . /
+cnoremap , ?
