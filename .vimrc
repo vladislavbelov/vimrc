@@ -54,6 +54,8 @@ set fencs=utf-8,cp1251
 
 " Projects
 set makeprg=make
+" Python
+au FileType python noremap <buffer> <F10> :!python %<cr>
 " C++
 au FileType cpp setlocal makeprg=g++\ -o\ %:p:r\ %:p\ -std=c++11\ -O2\ -Wall\ -Wextra\ -DHOME
 au FileType cpp noremap <F5> :!gdb %:p:r<cr>
