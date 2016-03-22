@@ -56,6 +56,7 @@ set fencs=utf-8,cp1251
 set makeprg=make
 " C++
 au FileType cpp setlocal makeprg=g++\ -o\ %:p:r\ %:p\ -std=c++11\ -O2\ -Wall\ -Wextra\ -DHOME
+au FileType cpp noremap <F5> :!gdb %:p:r<cr>
 au FileType cpp noremap <F9> :make<cr>:copen 7<cr><cr>
 au FileType cpp noremap <buffer> <F10> :!%:p:r<cr>
 
@@ -100,6 +101,7 @@ if has("gui_running")
     hi Constant    gui=NONE guibg=NONE guifg=#ffff87
     hi MatchParen  gui=NONE guibg=#875f00 guifg=#ffffd7
     hi LineNr      gui=NONE guibg=NONE guifg=#af5f00
+    hi CursorLineNr gui=NONE guibg=NONE guifg=#d78700
 
     " future feature
     if has("gui_gtk2")
@@ -121,5 +123,6 @@ else
     hi Constant    cterm=NONE ctermbg=NONE ctermfg=228
     hi MatchParen  cterm=NONE ctermbg=94 ctermfg=230
     hi LineNr      cterm=NONE ctermbg=NONE ctermfg=130
+    hi CursorLineNr cterm=NONE ctermbg=NONE ctermfg=172
 endif
 
