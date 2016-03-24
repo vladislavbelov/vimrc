@@ -206,5 +206,3 @@ cnoremap б ,
 cnoremap Б <
 cnoremap ю .
 cnoremap Ю >
-cnoremap . /
-cnoremap , ?
