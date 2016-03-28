@@ -59,7 +59,7 @@ au FileType python noremap <buffer> <F10> :!python %<cr>
 " C++
 au FileType cpp setlocal makeprg=g++\ -o\ %:p:r\ %:p\ -std=c++11\ -O2\ -Wall\ -Wextra\ -DHOME
 au FileType cpp noremap <F5> :!gdb %:p:r<cr>
-au FileType cpp noremap <F9> :make<cr><cr>
+au FileType cpp noremap <F9> :make<cr>
 au FileType cpp noremap <buffer> <F10> :!%:p:r<cr>
 
 " Tabs
