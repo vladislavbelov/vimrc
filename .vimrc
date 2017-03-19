@@ -1,5 +1,5 @@
 " Author: Vladislav Belov
-" Last update: 22.03.2016
+" Last update: 19.03.2017
 
 " User interface
 syntax on
@@ -19,6 +19,7 @@ set number
 set wildmenu
 set lazyredraw
 set backspace=indent,eol,start
+set whichwrap=<,>,h,l,[,]
 
 " Search
 set ignorecase
@@ -57,8 +58,10 @@ set makeprg=make
 " Python
 au FileType python noremap <buffer> <F10> :!python %<cr>
 " C++
-au FileType cpp setlocal makeprg=g++\ -o\ %:p:.:r\ %:p:.\ -std=c++11\ -O2\ -Wall\ -Wextra\ -DHOME
+au FileType cpp setlocal makeprg=g++\ -o\ %:p:.:r\ %:p:.\ -std=c++14\ -O2\ -Wall\ -Wextra\ -pedantic\ -DHOME
 au FileType cpp noremap <F5> :!gdb %:p:r<cr>
+au FileType cpp noremap <F7> :!g++ -g -o %:p:.:r %:p:. -std=c++11 -O2 -Wall -Wextra -pedantic -DHOME<cr>
+au FileType cpp noremap <F8> :!g++ -g -o %:p:.:r %:p:. -std=c++14 -O2 -Wall -Wextra -pedantic -DHOME<cr>
 au FileType cpp noremap <F9> :make<cr>
 au FileType cpp noremap <buffer> <F10> :!%:p:r<cr>
 
@@ -72,8 +75,11 @@ set smartindent
 
 " Key maps
 nmap <F2> :w<cr>
-vmap <F2> <esc>:w<cr>i
+vmap <F2> <esc>:w<cr>v
 imap <F2> <esc>:w<cr>i
+nmap <F3> *
+vmap <F3> <esc>*v
+imap <F3> <esc>*i
 nmap <F9> :make<cr>
 imap <C-d> <esc>yypi
 inoremap <C-space> <C-x><C-o>
