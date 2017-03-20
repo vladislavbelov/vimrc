@@ -58,10 +58,10 @@ set makeprg=make
 " Python
 au FileType python noremap <buffer> <F10> :!python %<cr>
 " C++
-au FileType cpp setlocal makeprg=g++\ -o\ %:p:.:r\ %:p:.\ -std=c++14\ -O2\ -Wall\ -Wextra\ -pedantic\ -DHOME
+au FileType cpp setlocal makeprg=g++\ -static\ -o\ %:p:.:r\ %:p:.\ -std=c++14\ -O2\ -Wall\ -Wextra\ -pedantic\ -DHOME
 au FileType cpp noremap <F5> :!gdb %:p:r<cr>
-au FileType cpp noremap <F7> :!g++ -g -o %:p:.:r %:p:. -std=c++11 -O2 -Wall -Wextra -pedantic -DHOME<cr>
-au FileType cpp noremap <F8> :!g++ -g -o %:p:.:r %:p:. -std=c++14 -O2 -Wall -Wextra -pedantic -DHOME<cr>
+au FileType cpp noremap <F7> :!g++ -static -g -o %:p:.:r %:p:. -std=c++11 -O2 -Wall -Wextra -pedantic -DHOME<cr>
+au FileType cpp noremap <F8> :!g++ -static -g -o %:p:.:r %:p:. -std=c++14 -O2 -Wall -Wextra -pedantic -DHOME<cr>
 au FileType cpp noremap <F9> :make<cr>
 au FileType cpp noremap <buffer> <F10> :!%:p:r<cr>
 
@@ -134,6 +134,12 @@ else
     hi LineNr      cterm=NONE ctermbg=NONE ctermfg=130
     hi CursorLineNr cterm=NONE ctermbg=235 ctermfg=172
 endif
+
+" Autoreload .vimrc
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') && filereadable($MYGVIMRC) | so $MYGVIMRC | endif
+augroup END
 
 " Remapping for the russian layout
 nnoremap Ж :
