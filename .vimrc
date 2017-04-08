@@ -138,8 +138,33 @@ endif
 " Autoreload .vimrc
 augroup myvimrc
     au!
-    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') && filereadable($MYGVIMRC) | so $MYGVIMRC | endif
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has("gui_running") && filereadable($MYGVIMRC) | so $MYGVIMRC | endif
 augroup END
+
+" Completion
+set complete-=i
+set complete+=.
+function! TabComplete()
+    if col(".") > 1 && strpart(getline("."), col(".")-2, 1) =~ "^\\w"
+        return "\<C-N>"
+    else
+        return "\<Tab>"
+    endif
+endfunction
+inoremap <Tab> <C-R>=TabComplete()<cr>
+
+" Code style
+function! ToggleComment()
+    let l:line = getline(".")
+    if l:line =~ "^//.*"
+        let l:line = strpart(l:line, 2)
+    else
+        let l:line = "//".l:line
+    endif
+    call setline(".", l:line)
+endfunction
+inoremap <C-Q> <esc>:call ToggleComment()<cr>a
+nnoremap <C-Q> <esc>:call ToggleComment()<cr>
 
 " Remapping for the russian layout
 nnoremap Ж :
