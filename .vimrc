@@ -64,6 +64,7 @@ au FileType cpp noremap <F7> :!g++ -static -g -o %:p:.:r %:p:. -std=c++11 -O2 -W
 au FileType cpp noremap <F8> :!g++ -static -g -o %:p:.:r %:p:. -std=c++14 -O2 -Wall -Wextra -pedantic -DHOME<cr>
 au FileType cpp noremap <F9> :make<cr>
 au FileType cpp noremap <buffer> <F10> :!%:p:r<cr>
+au FileType cpp noremap <buffer> <F11> :!%:p:r < %:p:r.in<cr>
 
 " Tabs
 set shiftwidth=4
