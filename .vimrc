@@ -1,5 +1,5 @@
 " Author: Vladislav Belov
-" Last update: 19.03.2017
+" Last update: 07.08.2017
 
 " User interface
 syntax on
@@ -55,16 +55,26 @@ set fencs=utf-8,cp1251
 
 " Projects
 set makeprg=make
+noremap <F12> :make<cr>
 " Python
 au FileType python noremap <buffer> <F10> :!python %<cr>
 " C++
 au FileType cpp setlocal makeprg=g++\ -static\ -o\ %:p:.:r\ %:p:.\ -std=c++14\ -O2\ -Wall\ -Wextra\ -pedantic\ -DHOME
 au FileType cpp noremap <F5> :!gdb %:p:r<cr>
-au FileType cpp noremap <F7> :!g++ -static -g -o %:p:.:r %:p:. -std=c++11 -O2 -Wall -Wextra -pedantic -DHOME<cr>
-au FileType cpp noremap <F8> :!g++ -static -g -o %:p:.:r %:p:. -std=c++14 -O2 -Wall -Wextra -pedantic -DHOME<cr>
+au FileType cpp noremap <F7> :!g++ -static -g -o %:p:.:r %:p:. -std=c++11 -Wall -Wextra -pedantic -DHOME<cr>
+au FileType cpp noremap <F8> :!g++ -static -g -o %:p:.:r %:p:. -std=c++14 -Wall -Wextra -pedantic -DHOME<cr>
 au FileType cpp noremap <F9> :make<cr>
 au FileType cpp noremap <buffer> <F10> :!%:p:r<cr>
 au FileType cpp noremap <buffer> <F11> :!%:p:r < %:p:r.in<cr>
+" C
+au FileType c setlocal makeprg=gcc\ -o\ %:p:.:r\ %:p:.\ -O2\ -Wall\ -Wextra\ -pedantic\ -DHOME
+au FileType c noremap <F5> :!gdb %:p:r<cr>
+au FileType c noremap <F9> :make<cr>
+au FileType c noremap <buffer> <F10> :!%:p:r<cr>
+" Rust
+au FileType rust setlocal makeprg=rustc\ %:p:
+au FileType rust noremap <F9> :make<cr>
+au FileType rust noremap <buffer> <F10> :!%:p:r<cr>
 
 " Tabs
 set shiftwidth=4
