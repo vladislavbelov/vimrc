@@ -75,6 +75,10 @@ au FileType c noremap <buffer> <F10> :!%:p:r<cr>
 au FileType rust setlocal makeprg=rustc\ %:p:
 au FileType rust noremap <F9> :make<cr>
 au FileType rust noremap <buffer> <F10> :!%:p:r<cr>
+" Haskell
+au FileType haskell setlocal makeprg=ghc\ -o\ %:p:.:r\ %:p:.
+au FileType haskell noremap <F9> :make<cr>
+au FileType haskell noremap <buffer> <F10> :!%:p:r<cr>
 
 " Tabs
 set shiftwidth=4
